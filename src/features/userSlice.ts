@@ -1,3 +1,5 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 export type UserType = {
   id: string;
   firstName: string;
@@ -13,3 +15,13 @@ const initialState: StateType = {
   lastName: "Murphy",
   age: 34,
 };
+
+export const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    incrementAge: (state) => {
+      state.age += 1;
+    },
+  },
+});
