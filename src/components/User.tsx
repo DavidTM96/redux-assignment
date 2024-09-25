@@ -1,15 +1,21 @@
-import { useAppSelector } from "../app/hooks";
-import { UserType } from "../features/userSlice";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { UserType, incrementAge } from "../features/userSlice";
 
 export function User() {
-  const User: UserType = useAppSelector((state) => state.user);
+  const user: UserType = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  const handleIncrementAge = () => {
+    dispatch(incrementAge());
+  };
 
   return (
     <div>
       <h1>
-        {User.firstName} {User.lastName}
+        {user.firstName} {user.lastName}
       </h1>
-      <h2>Age: {User.age}</h2>
+      <h2>Age: {user.age}</h2>
+      <button onClick={handleIncrementAge}>Increment Age</button>
     </div>
   );
 }
