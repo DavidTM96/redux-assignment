@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export type UserType = {
   id: string;
@@ -20,8 +20,8 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    incrementAge: (state, action: PayloadAction<UserType>) => {
-      state.age += action.payload.age;
+    incrementAge: (state) => {
+      state.age += 1;
     },
   },
 });
